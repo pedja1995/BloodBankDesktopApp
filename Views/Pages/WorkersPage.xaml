@@ -1,0 +1,79 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DesktopApp.Views.Pages"
+      xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Class="DesktopApp.Views.Pages.WorkersPage"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="Workers" MinHeight="676" MinWidth="898">
+    <Page.Resources>
+        <Style x:Key="MyButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Page.Resources>
+    <Grid>
+        <Button  Style="{StaticResource MyButtonStyle}"  x:Name="btnAdd" Content="" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="53" Height="53" BorderBrush="{x:Null}" MouseEnter="btnAdd_MouseEnter" MouseLeave="btnAdd_MouseLeave" ToolTip="Dodaj novog donora" Click="btnAdd_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/DesktopApp;component/Resources/img_btnAdd.png" Stretch="UniformToFill"/>
+            </Button.Background>
+        </Button>
+        <Label   Content="Dodaj novog radnika" HorizontalAlignment="Left" Margin="63,0,0,0" VerticalAlignment="Top" Height="53" Width="176" FontSize="16" VerticalContentAlignment="Center" Foreground="White" FontWeight="Bold"/>
+        <Grid Margin="0,274,0,0" MinWidth="898" MinHeight="402">
+            <telerik:RadGridView x:Name="gridWorkers" Margin="10" telerik:StyleManager.Theme="Green" CanUserInsertRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False" RowActivated="gridWorkers_RowActivated" EditTriggers="None" ClipboardCopyMode="Header" EnableStickyGroupHeaders="True" FilteringDropDownStaysOpen="False" GroupRenderMode="Nested" IsLocalizationLanguageRespected="True" IsPropertyChangedAggregationEnabled="True" IsScrolling="False" ShouldCloseFilteringPopupOnKeyboardFocusChanged="False" ShowScrollPositionIndicator="True" ShowGroupPanel="False" SelectionChanged="gridWorkers_SelectionChanged" MinWidth="878" MinHeight="382" >
+                <telerik:RadGridView.Columns>
+                    <telerik:GridViewDataColumn Header="ID" MinWidth="100"
+                                   DataMemberBinding="{Binding RadnikId}"/>
+                    <telerik:GridViewDataColumn Header="IME" MinWidth="100" DataMemberBinding="{Binding Ime}"/>
+
+                    <telerik:GridViewDataColumn Header="PREZIME" MinWidth="100" DataMemberBinding="{Binding Prezime}"/>
+                    <telerik:GridViewDataColumn Header="RADNO MJESTO" MinWidth="100" DataMemberBinding="{Binding RadnoMjesto}"/>
+                    <telerik:GridViewDataColumn Header="DATUM ZAPOSLENJA" MinWidth="100" DataMemberBinding="{Binding DatumZaposlenja}"/>
+                </telerik:RadGridView.Columns>
+            </telerik:RadGridView>
+        </Grid>
+        <Grid HorizontalAlignment="Center" Height="221" Margin="0,53,10,0" VerticalAlignment="Top" Width="888">
+            <GroupBox x:Name="groupPersonalInfo" Header="Lični podaci" Height="212" Margin="461,0,0,9" VerticalAlignment="Center" Foreground="White" FontWeight="Bold">
+                <Grid x:Name="gridPersonalInfo" Margin="0,0,-2,-4">
+                    <Label Content="Ime:" HorizontalAlignment="Left" Margin="-1,1,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Width="121" HorizontalContentAlignment="Right"/>
+                    <Label Content="Prezime:" HorizontalAlignment="Left" Margin="-1,27,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Width="121" HorizontalContentAlignment="Right"/>
+                    <Label Content="E-mail:" HorizontalAlignment="Left" Margin="-1,87,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Width="121" HorizontalContentAlignment="Right"/>
+                    <Label x:Name="lblAddress" Content="Adresa prebivališta:" HorizontalAlignment="Left" Margin="-1,111,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" HorizontalContentAlignment="Right"/>
+                    <Label Content="Broj telefona:" HorizontalAlignment="Left" Margin="-1,55,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Width="121" HorizontalContentAlignment="Right"/>
+                    <Label x:Name="lblPlace" Content="Mjesto prebivališta:" HorizontalAlignment="Left" Margin="-1,139,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" HorizontalContentAlignment="Right"/>
+                    <TextBox x:Name="txtName" Height="23" Margin="120,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" HorizontalAlignment="Left" Width="287"/>
+                    <TextBox x:Name="txtLastname" Height="23" Margin="120,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" HorizontalAlignment="Left" Width="287"/>
+                    <TextBox x:Name="txtEmail" Height="23" Margin="120,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" HorizontalAlignment="Left" Width="287"/>
+                    <TextBox x:Name="txtPhone" Height="23" Margin="120,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" HorizontalAlignment="Left" Width="287"/>
+                    <TextBox x:Name="txtAddress" Height="23" Margin="120,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" HorizontalAlignment="Left" Width="287"/>
+                    <TextBox x:Name="txtPlace" Height="23" Margin="120,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" HorizontalAlignment="Left" Width="287"/>
+                </Grid>
+            </GroupBox>
+            <GroupBox x:Name="groupLoginInfo" Header="Korisnički podaci" Height="212" Margin="10,0,452,9" VerticalAlignment="Center" Foreground="White" FontWeight="Bold">
+                <Grid Margin="0,0,-2,-3">
+                    <Label Content="ID:" HorizontalAlignment="Left" Margin="-2,-3,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Width="96" HorizontalContentAlignment="Right"/>
+                    <TextBox x:Name="txtID" Height="23" Margin="94,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" HorizontalAlignment="Left" Width="312"/>
+                    <Label x:Name="lbluserName_Copy" Content="Radno mjesto:" HorizontalAlignment="Left" Margin="-2,25,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Width="96" HorizontalContentAlignment="Right"/>
+                    <TextBox x:Name="txtWorkingPlace" Height="23" Margin="94,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" HorizontalAlignment="Left" Width="312" MaxLength="32"/>
+                    <Label x:Name="lbluserName" Content="Korisničko ime:" HorizontalAlignment="Left" Margin="-2,53,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" HorizontalContentAlignment="Right"/>
+                    <TextBox x:Name="txtUsername" Height="23" Margin="94,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" HorizontalAlignment="Left" Width="312" MaxLength="24"/>
+                    <Label x:Name="lblPassword" Content="Lozinka:" HorizontalAlignment="Left" Margin="-2,79,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Width="96" HorizontalContentAlignment="Right"/>
+                    <telerik:RadPasswordBox x:Name="passPassword" HorizontalAlignment="Left" Height="23" Margin="94,84,0,0" Password="" TextWrapping="Wrap" VerticalAlignment="Top" Width="312" WatermarkContent="" telerik:StyleManager.Theme="Windows8" MaxLength="24" IsEnabled="False"/>
+                    <CheckBox x:Name="checkAdmin" Content="Administratorsko pravo pristupa" HorizontalAlignment="Left" Margin="0,115,0,0" VerticalAlignment="Top" Height="18" Width="197" IsEnabled="False" Foreground="White"/>
+                    <telerik:RadButton x:Name="btnChange" Content="Izmjeni podatke" HorizontalAlignment="Right" Height="43" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="136" telerik:StyleManager.Theme="Green" Click="btnChange_Click" FontWeight="Bold" FontSize="16"/>
+                </Grid>
+            </GroupBox>
+        </Grid>
+
+    </Grid>
+</Page>

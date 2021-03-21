@@ -1,0 +1,86 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DesktopApp.Views.Pages"
+      xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Class="DesktopApp.Views.Pages.AddDonorPage"
+      mc:Ignorable="d" d:DesignWidth="800"
+      Title="AddDonor" MinWidth="898" MinHeight="676" Width="Auto">
+
+    <Page.Resources>
+        <!--// App Back Button Style Template //-->
+        <Style x:Key="MyButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid MinWidth="898" MinHeight="676">
+        <Grid.Resources>
+            <telerik:IconSources x:Key="IconSources" DarkBasePath="pack://application:,,,/Telerik.Windows.Controls.RichTextBoxUI;component/Images/Dark/" LightBasePath="pack://application:,,,/Telerik.Windows.Controls.RichTextBoxUI;component/Images/MSOffice/" ModernBasePath="pack://application:,,,/Telerik.Windows.Controls.RichTextBoxUI;component/Images/Modern/"/>
+            <telerik:FontFamiliesProvider x:Key="FontFamiliesProvider"/>
+            <telerik:EditingContextTypeToBoolConverter x:Key="EditingContextTypeToBoolConverter"/>
+        </Grid.Resources>
+        <Button x:Name="btnBack"  Style="{StaticResource ResourceKey=MyButtonStyle}" Content="" Margin="712,25,132,0" VerticalAlignment="Top" Height="53" BorderBrush="{x:Null}" ToolTip="Nazad na prethodnu stranicu" HorizontalAlignment="Center" Width="54" Click="btnBack_Click">
+            <Button.Background>
+                <ImageBrush Stretch="UniformToFill" ImageSource="/DesktopApp;component/Resources/btn_go_back.png"/>
+            </Button.Background>
+        </Button>
+        <GroupBox Header="Kontakt" HorizontalAlignment="Center" Height="185" Margin="132,309,132,0" VerticalAlignment="Top" Width="634" Foreground="White" FontWeight="Bold">
+            <Grid Margin="0,0,-2,-4">
+                <Label Content="E-mail:" HorizontalAlignment="Left" Margin="1,32,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Width="121" HorizontalContentAlignment="Right"/>
+                <Label x:Name="lblPassword" Content="Adresa prebivališta:" HorizontalAlignment="Left" Margin="1,58,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" HorizontalContentAlignment="Right"/>
+                <Label Content="Broj telefona:" HorizontalAlignment="Left" Margin="1,2,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Width="121" HorizontalContentAlignment="Right"/>
+                <Label x:Name="lblPassword_Copy" Content="Mjesto prebivališta:" HorizontalAlignment="Left" Margin="1,86,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" HorizontalContentAlignment="Right"/>
+                <TextBox x:Name="txtEmail" Height="23" Margin="127,33,10,0" TextWrapping="Wrap" VerticalAlignment="Top" MaxLength="48" TextChanged="txtEmail_TextChanged"/>
+                <TextBox x:Name="txtPhone" Height="23" Margin="127,5,10,0" TextWrapping="Wrap" VerticalAlignment="Top" MaxLength="24"/>
+                <TextBox x:Name="txtAddress" Height="23" Margin="127,61,10,0" TextWrapping="Wrap" VerticalAlignment="Top" MaxLength="42"/>
+                <TextBox x:Name="txtPlace" Height="23" Margin="127,89,10,0" TextWrapping="Wrap" VerticalAlignment="Top" MaxLength="32"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Lični podaci" HorizontalAlignment="Center" Height="231" Margin="132,78,132,0" VerticalAlignment="Top" Width="634" Foreground="White" FontWeight="Bold">
+            <Grid Margin="0,0,-2,-2">
+                <Image x:Name="imgBloodType" HorizontalAlignment="Left" Height="137" Margin="11,10,0,0" VerticalAlignment="Top" Width="169"/>
+                <Label Content="Ime:" HorizontalAlignment="Left" Margin="192,35,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Width="58" HorizontalContentAlignment="Right"/>
+                <Label Content="Prezime:" HorizontalAlignment="Left" Margin="192,63,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" HorizontalContentAlignment="Right"/>
+                <TextBox x:Name="txtName" Height="23" Margin="255,38,10,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="txtName_TextChanged" MaxLength="24"/>
+                <TextBox x:Name="txtLastname" Height="23" Margin="255,66,10,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="txtLastname_TextChanged" MaxLength="24"/>
+                <Label x:Name="lblPasswordadd" Content="Lozinka:" HorizontalAlignment="Left" Margin="192,94,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Width="58" HorizontalContentAlignment="Right"/>
+                <telerik:RadPasswordBox x:Name="passPassword" HorizontalAlignment="Left" Height="23" Margin="255,94,0,0" Password="" TextWrapping="Wrap" Text="RadPasswordBox" VerticalAlignment="Top" Width="358" WatermarkContent="" telerik:StyleManager.Theme="Office2013" MaxLength="24"/>
+                <Label Content="ID:" HorizontalAlignment="Left" Margin="192,7,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Width="58" HorizontalContentAlignment="Right"/>
+                <TextBox x:Name="txtID" Height="23" Margin="255,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False"/>
+                <telerik:RadComboBox x:Name="comboBloodType" HorizontalAlignment="Left" Margin="295,160,0,0" VerticalAlignment="Top" Width="156" SelectionChanged="comboBloodType_SelectionChanged" telerik:StyleManager.Theme="VisualStudio2019">
+                    <telerik:RadComboBoxItem Content="A+"/>
+                    <telerik:RadComboBoxItem Content="A-"/>
+                    <telerik:RadComboBoxItem Content="B+"/>
+                    <telerik:RadComboBoxItem Content="B-"/>
+                    <telerik:RadComboBoxItem Content="O+"/>
+                    <telerik:RadComboBoxItem Content="O-"/>
+                    <telerik:RadComboBoxItem Content="AB+"/>
+                    <telerik:RadComboBoxItem Content="AB-"/>
+                </telerik:RadComboBox>
+                <Label Content="Krvna grupa:" HorizontalAlignment="Left" Margin="192,156,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Width="98" HorizontalContentAlignment="Right"/>
+                <DatePicker x:Name="dateDateOfBirth" HorizontalAlignment="Left" Margin="295,126,0,0" VerticalAlignment="Top" Width="158"/>
+                <Label Content="Datum rođenja:" HorizontalAlignment="Left" Margin="192,125,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" HorizontalContentAlignment="Right"/>
+                <telerik:RadComboBox x:Name="comboSex" HorizontalAlignment="Left" Margin="505,126,0,0" VerticalAlignment="Top" Width="108" telerik:StyleManager.Theme="VisualStudio2019">
+                    <telerik:RadComboBoxItem Content="M"/>
+                    <telerik:RadComboBoxItem Content="Ž"/>
+
+                </telerik:RadComboBox>
+                <Label Content="Pol:" HorizontalAlignment="Left" Margin="469,125,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" HorizontalContentAlignment="Right"/>
+            </Grid>
+        </GroupBox>
+        <telerik:RadButton x:Name="btnAdd" Content="Dodaj davaoca" HorizontalAlignment="Center" Height="57" Margin="384,499,384,0" VerticalAlignment="Top" Width="130" telerik:StyleManager.Theme="Green" Click="btnAdd_Click" FontWeight="Bold" FontSize="16"/>
+
+
+    </Grid>
+</Page>

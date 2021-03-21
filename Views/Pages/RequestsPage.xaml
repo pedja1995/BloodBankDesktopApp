@@ -1,0 +1,69 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DesktopApp.Views.Pages"
+      xmlns:telerikDocking="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Docking" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Class="DesktopApp.Views.Pages.RequestsPage"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="RequestsPage" MinWidth="898" MinHeight="676" >
+
+    <Grid x:Name="grdMain" MinWidth="800" MinHeight="600">
+        <telerik:RadTabControl x:Name="tabMenu" Margin="10,284,10,10" VerticalAlignment="Stretch" telerik:StyleManager.Theme="Green" SelectionChanged="RadTabControl_SelectionChanged" MinWidth="878" MinHeight="382">
+            <telerik:RadTabItem x:Name="tabPendingRequests" Header="Zahtjevi na čekanju">
+                <Grid Background="Transparent">
+                    <telerik:RadGridView x:Name="datagridPending" telerik:StyleManager.Theme="Green" CanUserInsertRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False" EditTriggers="None" ClipboardCopyMode="Header" EnableStickyGroupHeaders="True" FilteringDropDownStaysOpen="False" GroupRenderMode="Nested" IsLocalizationLanguageRespected="True" IsPropertyChangedAggregationEnabled="True" IsScrolling="False" ShouldCloseFilteringPopupOnKeyboardFocusChanged="False" ShowScrollPositionIndicator="True" ShowGroupPanel="False" SelectionChanged="datagridPending_SelectionChanged" MinHeight="359" MinWidth="876" >
+                        <telerik:RadGridView.Columns>
+                            <telerik:GridViewDataColumn Header="ID" MinWidth="100" DataMemberBinding="{Binding ZahtjevIdd}"/>
+                            <telerik:GridViewDataColumn Header="NAZIV USTANOVE" MinWidth="100" DataMemberBinding="{Binding Nazivv}"/>
+                            <telerik:GridViewDataColumn Header="DATUM" MinWidth="100" DataMemberBinding="{Binding DatumPodnosenjaZahtjevaa}"/>
+                            <telerik:GridViewDataColumn Header="KRVNA GRUPA" MinWidth="100" DataMemberBinding="{Binding KrvnaGrupaZahtjevv}"/>
+                            <telerik:GridViewDataColumn Header="TIP DERIVATA" MinWidth="100" DataMemberBinding="{Binding TipKrvnogDerivataa}"/>
+                            <telerik:GridViewDataColumn Header="KOLIČINA" MinWidth="100" DataMemberBinding="{Binding ZahtjevanaKolicinaa}"/>
+
+                        </telerik:RadGridView.Columns>
+                    </telerik:RadGridView>
+                </Grid>
+            </telerik:RadTabItem>
+            <telerik:RadTabItem x:Name="tabDeliveredRequests" Header="Isporučeni zahtjevi">
+                <Grid Background="Transparent">
+                    <telerik:RadGridView x:Name="datagridDelivered" telerik:StyleManager.Theme="Green" CanUserInsertRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False" EditTriggers="None" ClipboardCopyMode="Header" EnableStickyGroupHeaders="True" FilteringDropDownStaysOpen="False" GroupRenderMode="Nested" IsLocalizationLanguageRespected="True" IsPropertyChangedAggregationEnabled="True" IsScrolling="False" ShouldCloseFilteringPopupOnKeyboardFocusChanged="False" ShowScrollPositionIndicator="True" ShowGroupPanel="False" SelectionChanged="datagridDelivered_SelectionChanged" MinWidth="876" MinHeight="359" >
+                        <telerik:RadGridView.Columns>
+                            <telerik:GridViewDataColumn Header="ID" MinWidth="100" DataMemberBinding="{Binding ZahtjevIdd}"/>
+                            <telerik:GridViewDataColumn Header="NAZIV USTANOVE" MinWidth="100" DataMemberBinding="{Binding Nazivv}"/>
+                            <telerik:GridViewDataColumn Header="DATUM" MinWidth="100" DataMemberBinding="{Binding DatumPodnosenjaZahtjevaa}"/>
+                            <telerik:GridViewDataColumn Header="KRVNA GRUPA" MinWidth="100" DataMemberBinding="{Binding KrvnaGrupaZahtjevv}"/>
+                            <telerik:GridViewDataColumn Header="TIP DERIVATA" MinWidth="100" DataMemberBinding="{Binding TipKrvnogDerivataa}"/>
+                            <telerik:GridViewDataColumn Header="KOLIČINA" MinWidth="100" DataMemberBinding="{Binding ZahtjevanaKolicinaa}"/>
+
+                        </telerik:RadGridView.Columns>
+                    </telerik:RadGridView>
+                </Grid>
+            </telerik:RadTabItem>
+            <telerik:RadTabItem x:Name="tabDeclinedRequests" Header="Odbijeni zahtjevi">
+                <Grid Background="Transparent">
+                    <telerik:RadGridView x:Name="datagridDeclined" telerik:StyleManager.Theme="Green" CanUserInsertRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False" EditTriggers="None" ClipboardCopyMode="Header" EnableStickyGroupHeaders="True" FilteringDropDownStaysOpen="False" GroupRenderMode="Nested" IsLocalizationLanguageRespected="True" IsPropertyChangedAggregationEnabled="True" IsScrolling="False" ShouldCloseFilteringPopupOnKeyboardFocusChanged="False" ShowScrollPositionIndicator="True" ShowGroupPanel="False" SelectionChanged="datagridDeclined_SelectionChanged" MinWidth="876" MinHeight="359" >
+                        <telerik:RadGridView.Columns>
+                            <telerik:GridViewDataColumn Header="ID" MinWidth="100" DataMemberBinding="{Binding ZahtjevIdd}"/>
+                            <telerik:GridViewDataColumn Header="NAZIV USTANOVE" MinWidth="100" DataMemberBinding="{Binding Nazivv}"/>
+                            <telerik:GridViewDataColumn Header="DATUM" MinWidth="100" DataMemberBinding="{Binding DatumPodnosenjaZahtjevaa}"/>
+                            <telerik:GridViewDataColumn Header="KRVNA GRUPA" MinWidth="100" DataMemberBinding="{Binding KrvnaGrupaZahtjevv}"/>
+                            <telerik:GridViewDataColumn Header="TIP DERIVATA" MinWidth="100" DataMemberBinding="{Binding TipKrvnogDerivataa}"/>
+                            <telerik:GridViewDataColumn Header="KOLIČINA" MinWidth="100" DataMemberBinding="{Binding ZahtjevanaKolicinaa}"/>
+
+                        </telerik:RadGridView.Columns>
+                    </telerik:RadGridView>
+                </Grid>
+            </telerik:RadTabItem>
+        </telerik:RadTabControl>
+        <Grid x:Name="gridInfo" HorizontalAlignment="Center" Height="215" Margin="178,64,174,0" VerticalAlignment="Top" Width="546">
+            <Label Content="ID doza krvi:" Margin="214,10,215,172" Foreground="White" FontWeight="Bold" FontSize="16"/>
+            <telerik:RadButton x:Name="btnDecline" Content="Odbij zahtjev" HorizontalAlignment="Left" Height="31" Margin="68,174,0,0" VerticalAlignment="Top" Width="118" RenderTransformOrigin="0.513,0.882" telerik:StyleManager.Theme="Green" FontWeight="Bold" FontSize="16" Click="btnDecline_Click"/>
+            <telerik:RadButton x:Name="btnDeliver" Content="Isporuči zahtjev" HorizontalAlignment="Left" Height="31" Margin="340,174,0,0" VerticalAlignment="Top" Width="137" telerik:StyleManager.Theme="Green" FontWeight="Bold" FontSize="16" Click="btnDeliver_Click"/>
+            <telerik:RadListBox x:Name="listDoses" HorizontalAlignment="Left" Margin="68,43,0,0" VerticalAlignment="Top" Width="409" telerik:StyleManager.Theme="Green" Height="123">
+
+            </telerik:RadListBox>
+        </Grid>
+    </Grid>
+</Page>

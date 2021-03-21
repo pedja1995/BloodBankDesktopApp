@@ -1,0 +1,63 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DesktopApp.Views.Pages"
+      xmlns:Controls="clr-namespace:DesktopApp.Views.Controls" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Name="DonorsPage1" x:Class="DesktopApp.Views.Pages.DonorsPage"
+      mc:Ignorable="d"
+      Title="Donors" MinWidth="898" MinHeight="676">
+
+    <Page.Resources>
+
+        <Style x:Key="MyButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center"
+                        VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+
+        </Style>
+    </Page.Resources>
+
+
+    <Grid MinWidth="898" MinHeight="676">
+        <Button  Style="{StaticResource MyButtonStyle}"  x:Name="btnAdd" Content="" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="53" Height="53" BorderBrush="{x:Null}" MouseEnter="btnAdd_MouseEnter" MouseLeave="btnAdd_MouseLeave" ToolTip="Dodaj novog donora" Click="btnAdd_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Resources/img_btnAdd.png" Stretch="UniformToFill"/>
+            </Button.Background>
+        </Button>
+        <Label Content="Dodaj novog davaoca" HorizontalAlignment="Left" Margin="63,0,0,0" VerticalAlignment="Top" Height="53" Width="176" FontSize="16" VerticalContentAlignment="Center" Foreground="White" FontWeight="Bold"/>
+        <telerik:RadGridView x:Name="datagridDonors" telerik:StyleManager.Theme="Green" CanUserInsertRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False" RowActivated="datagridDonors_RowActivated" EditTriggers="None" ClipboardCopyMode="Header" EnableStickyGroupHeaders="True" FilteringDropDownStaysOpen="False" GroupRenderMode="Nested" IsLocalizationLanguageRespected="True" IsPropertyChangedAggregationEnabled="True" IsScrolling="False" ShouldCloseFilteringPopupOnKeyboardFocusChanged="False" ShowScrollPositionIndicator="True" ShowGroupPanel="False" Background="#FF2B2C2E" MinWidth="878" MinHeight="382" Margin="10,284,10,10" SelectionChanged="datagridDonors_SelectionChanged" >
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Header="ID" MinWidth="100"
+                    DataMemberBinding="{Binding RegistarskiBroj}" Background="{x:Null}"/>
+                <telerik:GridViewDataColumn Header="IME" MinWidth="100" DataMemberBinding="{Binding Ime}" Background="{x:Null}"/>
+
+                <telerik:GridViewDataColumn Header="PREZIME" MinWidth="100" DataMemberBinding="{Binding Prezime}" Background="{x:Null}"/>
+                <telerik:GridViewDataColumn Header="KRVNA GRUPA" MinWidth="100" DataMemberBinding="{Binding KrvnaGrupaDonor}" Background="{x:Null}"/>
+                <telerik:GridViewDataColumn Header="DATUM SLEDEĆEG DONIRANJA" MinWidth="100" DataMemberBinding="{Binding DatumNajranijegSledecegDoniranja}" Background="{x:Null}"/>
+
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
+        <GroupBox x:Name="groupContact" Header="Kontakt" Margin="210,99,206,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" MinWidth="482" MinHeight="142">
+            <Grid Margin="0,0,-2,1">
+                <Label Content="E-mail:" HorizontalAlignment="Left" Margin="19,33,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Width="121" HorizontalContentAlignment="Right"/>
+                <Label x:Name="lblAddress" Content="Adresa prebivališta:" HorizontalAlignment="Left" Margin="19,59,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" HorizontalContentAlignment="Right"/>
+                <Label Content="Broj telefona:" HorizontalAlignment="Left" Margin="19,3,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Width="121" HorizontalContentAlignment="Right"/>
+                <Label x:Name="lblPlace" Content="Mjesto prebivališta:" HorizontalAlignment="Left" Margin="19,87,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" HorizontalContentAlignment="Right"/>
+                <TextBox x:Name="txtEmail" Height="23" Margin="140,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" MaxLength="48" HorizontalAlignment="Left" Width="322"/>
+                <TextBox x:Name="txtPhone" Height="23" Margin="140,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" MaxLength="24" HorizontalAlignment="Left" Width="322"/>
+                <TextBox x:Name="txtAddress" Height="23" Margin="140,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" MaxLength="42" HorizontalAlignment="Left" Width="322"/>
+                <TextBox x:Name="txtPlace" Height="23" Margin="140,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" MaxLength="32" HorizontalAlignment="Left" Width="322"/>
+            </Grid>
+        </GroupBox>
+
+    </Grid>
+</Page>

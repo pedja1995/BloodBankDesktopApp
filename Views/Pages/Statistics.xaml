@@ -1,0 +1,42 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DesktopApp.Views.Pages"
+      xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Class="DesktopApp.Views.Pages.Statistics"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Statistics">
+
+    <Grid>
+        <GroupBox Header="Stanje u magacinu" HorizontalAlignment="Left" Height="193" Margin="10,10,0,0" VerticalAlignment="Top" Width="230" FontWeight="Bold" Foreground="White"/>
+        <telerik:RadPieChart x:Name="pieStorage" Margin="338,10,10,108" Palette="Green" >
+            <telerik:RadPieChart.LegendItems>
+                <telerik:LegendItem Title="A+"/>
+                <telerik:LegendItem Title="A-"/>
+                <telerik:LegendItem Title="B+"/>
+                <telerik:LegendItem Title="B-"/>
+                <telerik:LegendItem Title="O+"/>
+                <telerik:LegendItem Title="O-"/>
+                <telerik:LegendItem Title="AB+"/>
+                <telerik:LegendItem Title="AB-"/>
+            </telerik:RadPieChart.LegendItems>
+            <telerik:PieSeries>
+                <telerik:PieSeries.DataPoints>
+                    <telerik:PieDataPoint x:Name="blood_a_plus" Value="20"/>
+                    <telerik:PieDataPoint x:Name="blood_a_minus" Value="40"/>
+                    <telerik:PieDataPoint x:Name="blood_b_plus" Value="10"/>
+                    <telerik:PieDataPoint x:Name="blood_b_minus" Value="20"/>
+                    <telerik:PieDataPoint x:Name="blood_o_plus" Value="30"/>
+                    <telerik:PieDataPoint x:Name="blood_o_minus" Value="60"/>
+                    <telerik:PieDataPoint x:Name="blood_ab_plus" Value="50"/>
+                    <telerik:PieDataPoint x:Name="blood_ab_minus" Value="100"/>
+
+                </telerik:PieSeries.DataPoints>
+
+            </telerik:PieSeries>
+        </telerik:RadPieChart>
+
+    </Grid>
+</Page>

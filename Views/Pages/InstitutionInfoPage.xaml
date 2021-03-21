@@ -1,0 +1,91 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DesktopApp.Views.Pages"
+      xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Class="DesktopApp.Views.Pages.InstitutionInfoPage"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="InstitutionInfoPage" MinWidth="898" MinHeight="676" Height="Auto">
+
+    <Page.Resources>
+        <!--// App Back Button Style Template //-->
+        <Style x:Key="MyButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <Grid MinWidth="800">
+        <Button x:Name="btnBack" Style="{StaticResource ResourceKey=MyButtonStyle}" Content="" Margin="0,10,10,0" VerticalAlignment="Top" Height="53" BorderBrush="{x:Null}" ToolTip="Nazad na prethodnu stranicu" HorizontalAlignment="Right" Width="54" MouseEnter="btnBack_MouseEnter" MouseLeave="btnBack_MouseLeave" Click="btnBack_Click">
+            <Button.Background>
+                <ImageBrush Stretch="UniformToFill" ImageSource="/DesktopApp;component/Resources/btn_go_back.png"/>
+            </Button.Background>
+        </Button>
+
+        <telerik:RadTabControl HorizontalAlignment="Stretch" Margin="10,276,10,10" VerticalAlignment="Stretch" telerik:StyleManager.Theme="Green">
+            <telerik:RadTabItem x:Name="tabPendingRequests" Header="Zahtjevi na čekanju">
+                <Grid Background="Transparent">
+                    <telerik:RadGridView x:Name="gridRequestsOnWait" telerik:StyleManager.Theme="Green" CanUserInsertRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False" EditTriggers="None" ClipboardCopyMode="Header" FilteringDropDownStaysOpen="False" GroupRenderMode="Nested" IsLocalizationLanguageRespected="True" IsPropertyChangedAggregationEnabled="True" IsScrolling="False" ShouldCloseFilteringPopupOnKeyboardFocusChanged="False" ShowScrollPositionIndicator="True" ShowGroupPanel="False">
+                        <telerik:RadGridView.Columns>
+                            <telerik:GridViewDataColumn Header="ID" MinWidth="150" DataMemberBinding="{Binding ZahtjevId}"/>
+                            <telerik:GridViewDataColumn Header="KRVNA GRUPA" MinWidth="150" DataMemberBinding="{Binding KrvnaGrupaZahtjev}"/>
+                            <telerik:GridViewDataColumn Header="TIP DERIVATA" MinWidth="150" DataMemberBinding="{Binding TipKrvnogDerivata}"/>
+                            <telerik:GridViewDataColumn Header="BROJ DOZA" MinWidth="150" DataMemberBinding="{Binding ZahtjevanaKolicina}"/>
+                        </telerik:RadGridView.Columns>
+                    </telerik:RadGridView>
+
+                </Grid>
+            </telerik:RadTabItem>
+            <telerik:RadTabItem x:Name="tabDeliveredRequests" Header="Isporučeni zahtjevi">
+                <Grid Background="Transparent">
+                    <telerik:RadGridView x:Name="gridRequestsFinished" telerik:StyleManager.Theme="Green" CanUserInsertRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False" EditTriggers="None" ClipboardCopyMode="Header" FilteringDropDownStaysOpen="False" GroupRenderMode="Nested" IsLocalizationLanguageRespected="True" IsPropertyChangedAggregationEnabled="True" IsScrolling="False" ShouldCloseFilteringPopupOnKeyboardFocusChanged="False" ShowScrollPositionIndicator="True" ShowGroupPanel="False">
+                        <telerik:RadGridView.Columns>
+                            <telerik:GridViewDataColumn Header="ID" MinWidth="150" DataMemberBinding="{Binding ZahtjevId}"/>
+                            <telerik:GridViewDataColumn Header="KRVNA GRUPA" MinWidth="150" DataMemberBinding="{Binding KrvnaGrupaZahtjev}"/>
+                            <telerik:GridViewDataColumn Header="TIP DERIVATA" MinWidth="150" DataMemberBinding="{Binding TipKrvnogDerivata}"/>
+                            <telerik:GridViewDataColumn Header="BROJ DOZA" MinWidth="150" DataMemberBinding="{Binding ZahtjevanaKolicina}"/>
+                        </telerik:RadGridView.Columns>
+                    </telerik:RadGridView>
+                </Grid>
+            </telerik:RadTabItem>
+            <telerik:RadTabItem x:Name="tabDeclinedRequests" Header="Odbijeni zahtjevi">
+                <Grid Background="Transparent">
+                    <telerik:RadGridView x:Name="gridRequestsDeclined" telerik:StyleManager.Theme="Green" CanUserInsertRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False" EditTriggers="None" ClipboardCopyMode="Header" FilteringDropDownStaysOpen="False" GroupRenderMode="Nested" IsLocalizationLanguageRespected="True" IsPropertyChangedAggregationEnabled="True" IsScrolling="False" ShouldCloseFilteringPopupOnKeyboardFocusChanged="False" ShowScrollPositionIndicator="True" ShowGroupPanel="False">
+                        <telerik:RadGridView.Columns>
+                            <telerik:GridViewDataColumn Header="ID" MinWidth="150" DataMemberBinding="{Binding ZahtjevId}"/>
+                            <telerik:GridViewDataColumn Header="KRVNA GRUPA" MinWidth="150" DataMemberBinding="{Binding KrvnaGrupaZahtjev}"/>
+                            <telerik:GridViewDataColumn Header="TIP DERIVATA" MinWidth="150" DataMemberBinding="{Binding TipKrvnogDerivata}"/>
+                            <telerik:GridViewDataColumn Header="BROJ DOZA" MinWidth="150" DataMemberBinding="{Binding ZahtjevanaKolicina}"/>
+                        </telerik:RadGridView.Columns>
+                    </telerik:RadGridView>
+                </Grid>
+            </telerik:RadTabItem>
+        </telerik:RadTabControl>
+        <Grid HorizontalAlignment="Center" Height="218" VerticalAlignment="Top" Width="532" Margin="184,43,182,0">
+            <Label Content="Naziv ustanove:" HorizontalAlignment="Left" Margin="50,2,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Width="119" HorizontalContentAlignment="Right"/>
+            <Label Content="E-mail:" HorizontalAlignment="Left" Margin="50,87,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Width="119" HorizontalContentAlignment="Right"/>
+            <Label x:Name="lblPassword" Content="Adresa ustanove:" HorizontalAlignment="Left" Margin="50,113,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Width="119" HorizontalContentAlignment="Right"/>
+            <Label Content="Broj telefona:" HorizontalAlignment="Left" Margin="50,57,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Width="119" HorizontalContentAlignment="Right"/>
+            <Label x:Name="lblPassword_Copy" Content="Mjesto ustanove:" HorizontalAlignment="Left" Margin="50,141,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Width="119" HorizontalContentAlignment="Right"/>
+            <TextBox x:Name="txtName" Height="23" Margin="169,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="353" IsEnabled="False" MaxLength="48"/>
+            <TextBox x:Name="txtEmail" Height="23" Margin="169,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="353" IsEnabled="False" MaxLength="48"/>
+            <TextBox x:Name="txtPhone" Height="23" Margin="169,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="353" IsEnabled="False" MaxLength="24"/>
+            <TextBox x:Name="txtAddress" Height="23" Margin="169,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="353" IsEnabled="False" MaxLength="42"/>
+            <TextBox x:Name="txtPlace" Height="23" Margin="169,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="353" IsEnabled="False" MaxLength="32"/>
+            <Label x:Name="lblPasswordadd" Content="Identifikacioni kod:" HorizontalAlignment="Left" Margin="50,29,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" HorizontalContentAlignment="Right"/>
+            <TextBox x:Name="txtIdentity" HorizontalAlignment="Left" Height="23" Margin="169,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="353" IsEnabled="False" MaxLength="16"/>
+
+            <telerik:RadButton x:Name="btnChange" Content="Izmjeni podatke" HorizontalAlignment="Left" Height="40" Margin="384,172,0,0" VerticalAlignment="Top" Width="138" telerik:StyleManager.Theme="Green" Click="btnChange_Click" FontWeight="Bold" FontSize="16"/>
+        </Grid>
+
+    </Grid>
+</Page>

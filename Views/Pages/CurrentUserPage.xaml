@@ -1,0 +1,58 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DesktopApp.Views.Pages"
+      xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Class="DesktopApp.Views.Pages.CurrentUserPage"
+      mc:Ignorable="d"
+      Title="CurrentUser" Height="600.863" Width="613.324">
+    <Page.Resources>
+        <!--// App Back Button Style Template //-->
+        <Style x:Key="MyButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <telerik:RadButton x:Name="btnChange" Content="Promjeni podatke" Height="37" Margin="0,0,104,31" Width="146" telerik:StyleManager.Theme="Green" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="btnChange_Click" FontSize="16" FontWeight="Bold"/>
+        <StackPanel x:Name="stackData" Margin="108,37,93,0" VerticalAlignment="Top">
+            <Label Content="ID:" HorizontalAlignment="Center" RenderTransformOrigin="0.281,0.369" Foreground="White"/>
+            <TextBox x:Name="txtID" Height="23" Margin="10,0" TextWrapping="Wrap" IsEnabled="False" Width="392" HorizontalAlignment="Center"/>
+            <Label x:Name="lblWorkingPlace" Content="Radno mjesto:" HorizontalAlignment="Center" Margin="163,0" Foreground="White"/>
+            <TextBox x:Name="txtWorkingPlace" Height="23" Margin="10,0" TextWrapping="Wrap" IsEnabled="False" Width="392" HorizontalAlignment="Center" MaxLength="32"/>
+            <Label Content="Ime:" HorizontalAlignment="Center" Foreground="White"/>
+            <TextBox x:Name="txtName" Height="23" Margin="10,0" TextWrapping="Wrap" IsEnabled="False" Width="392" HorizontalAlignment="Center" MaxLength="24"/>
+            <Label Content="Prezime:" HorizontalAlignment="Center" Foreground="White"/>
+            <TextBox x:Name="txtLastname" Height="23" Margin="10,0" TextWrapping="Wrap" IsEnabled="False" Width="392" HorizontalAlignment="Center" MaxLength="24"/>
+            <Label x:Name="lbluserName" Content="Korisničko ime:" HorizontalAlignment="Center" Foreground="White"/>
+            <TextBox x:Name="txtUsername" Height="23" Margin="10,0" TextWrapping="Wrap" IsEnabled="False" Width="392" HorizontalAlignment="Center" MaxLength="24"/>
+            <Label x:Name="lblPass" Content="Lozinka:" HorizontalAlignment="Center" Foreground="White"/>
+            <telerik:RadPasswordBox x:Name="passPasword" Height="23" Margin="10,0" Password="" TextWrapping="Wrap" Width="392" WatermarkContent="" telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Center" MaxLength="24"/>
+            <Label Content="E-mail:" HorizontalAlignment="Center" Foreground="White"/>
+            <TextBox x:Name="txtEmail" Height="23" Margin="10,0" TextWrapping="Wrap" IsEnabled="False" Width="392" HorizontalAlignment="Center" MaxLength="48"/>
+            <Label Content="Broj telefona:" HorizontalAlignment="Center" Margin="166,0" Foreground="White"/>
+            <TextBox x:Name="txtPhone" Height="23" Margin="10,0" TextWrapping="Wrap" IsEnabled="False" Width="392" HorizontalAlignment="Center" MaxLength="24"/>
+            <Label x:Name="lblPassword" Content="Adresa prebivališta:" HorizontalAlignment="Center" Foreground="White"/>
+            <TextBox x:Name="txtAddress" Height="23" Margin="10,0" TextWrapping="Wrap" IsEnabled="False" Width="392" HorizontalAlignment="Center" MaxLength="42"/>
+            <Label x:Name="lblPlace" Content="Mjesto prebivališta:" HorizontalAlignment="Center" Foreground="White"/>
+            <TextBox x:Name="txtPlace" Height="23" Margin="10,0" TextWrapping="Wrap" IsEnabled="False" Width="392" HorizontalAlignment="Center" MaxLength="32"/>
+        </StackPanel>
+        <telerik:RadButton x:Name="btnCancel" Content="Otkaži promjene" Height="37" Margin="0,0,346,31" Width="148" telerik:StyleManager.Theme="Green" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="btnCancel_Click" FontSize="16" FontWeight="Bold"/>
+        <Button x:Name="btnBack" Style="{StaticResource ResourceKey=MyButtonStyle}" Content="" Margin="0,10,10,0" VerticalAlignment="Top" Height="53" BorderBrush="{x:Null}" ToolTip="Nazad na prethodnu stranicu" HorizontalAlignment="Right" Width="54" MouseEnter="btnBack_MouseEnter" MouseLeave="btnBack_MouseLeave" Click="btnBack_Click" Visibility="Hidden">
+            <Button.Background>
+                <ImageBrush Stretch="UniformToFill" ImageSource="/DesktopApp;component/Resources/btn_go_back.png"/>
+            </Button.Background>
+        </Button>
+
+    </Grid>
+</Page>
